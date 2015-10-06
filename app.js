@@ -112,5 +112,6 @@ app.all("*", function(req, res) {
 	res.status(404).send("404. Nothing here, keep moving.");
 });
 
-
-app.listen(8080);
+var envPort = process.env.PORT;
+if(envPort !== undefined) app.listen(envPort);
+else app.listen(8080);
